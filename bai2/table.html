@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        Table: dùng để tạo bảng
+            <thead>Phần đầu của bảng</thead>
+            <tbody>Phần thân của bảng</tbody>
+            <tfoot>Phần cuối của bảng</tfoot>
+            <tr>Hàng</tr>
+            <td>cột</td>
+            các thuộc tính trong table:
+                1.border: tạo đường viền
+                2.cellpading: là khoảng cách từ content đến viền của ô
+                3.cellspacing: khoảng cách giữa 2 coouj, 2 hàng
+                4.align: căn chỉnh vị trí text so với ô
+                5.colspan: gộp các ô lại với nhau
+                6.rowspam:gộp các hàng lại với nhau
+                7.caption: tiêu đề của bảng
+     -->
+     <table border="1" cellpading="205" cellspacing="1" >
+        <caption>Quản lý sinh viên</caption>
+        <thead>
+            <tr>
+                <th >STT</th>
+                <th>Tên</th>
+                <th>Quê</th>
+                <th>Mã SV</th>
+                <th>SĐT</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="center">1</td>
+                <td>Nguyễn Van A</td>
+                <td>Hà Nội</td>
+                <td>SV001</td>
+                <td rowspan="2">03529819</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Nguyễn Van A</td>
+                <td>Hà Nội</td>
+                <td>SV001</td>
+                
+            </tr>
+            <tr>
+                <td colspan="5" align="center">Tổng số sinh viên là 2</td>
+                
+            </tr>
+        </tbody>
+     </table>
+</body>
+</html>

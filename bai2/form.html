@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        Form: là biểu mẫu thu thập dữ liệu gửi lên sever
+        I.Các thẻ hay dùng cho form
+            1.thẻ <lable>: nhãn dán cho ô input
+            2. ô input: để tạo ô cho người dùng điền dữ liệu
+            3.button: tạo nút ấn
+        II.Các thuộc tính hay dùng cho form
+            1.for của lable trùng với thuộc tính id của thẻ input 
+            thì khi nhấn vào lable tự động trỏ vào ô input
+            2.action: địa chỉ nơi nhận dữ liệu
+            3.method: là phương thức dùng để gửi dữ liệu với form
+                get:
+                port:
+            4.id: thuộc tính duy nhất dùng để định danh cho thẻ
+            5. name: thuộc tính dùng để gửi dữ liệu lên sever
+            6.autocomplete : tắt bật tính năng gọi ý điền cho ô input
+            7.enctype: định dạng mã hóa dữ liệu lên sever
+        III.Các thuộc tính của input
+            1.type
+                + text: kiểu chữ và số
+                + number: chỉ cho phép kiểu số
+                + password: kí tự bị ẩn đi
+                + radio: hiện ô muốn chọn,nếu muốn chọn 1 trong nhiều ô
+                 thì các ô phải trùng thuộc tính name
+                + checkbox: hiển thị ô chọn
+                + range: tạo một thanh tiến trình
+                + date: hiển thị thời gian
+                + month: hiển thị tháng
+            2.value: giá trị ô input
+            3.placeholder:
+     -->
+     <form action="" method="get" enctype="" id="login">
+        <label for="usermane">username</label>
+        <input type="text" id="usermane" name="username" autocomplete="off"><br>
+        <label for="password">password</label>
+        <input type="text" id="password" name="password" autocomplete="off" autofocus required><br>
+        <input type="radio" value="A" name="test" checked>A
+        <input type="radio" value="B" name="test">B
+        <input type="radio" value="C" name="test">C
+        <input type="date">
+        <select name="" id="">
+            <option value="">Hà Nội</option>
+            <option value="" selected >Hồ chí minh</option>
+        </select>
+        <button>login</button>
+        <input type="button" value="click">
+        <input type="reset">
+        <input type="file" multiple>
+        <input type="color" ><br>
+        <input type="text" placeholder="xin moi nhap">
+        <input type="text" placeholder="mời chọn giá" list="datalist1">
+        <datalist id="datalist1">
+            <option value="giá 1"></option>
+            <option value="giá 2"></option>
+            <option value="giá 3"></option>
+        </datalist>
+
+        <input type="number" min="5" max="20">
+
+
+     </form>
+     <input type="text" form="login">
+</body>
+</html>
