@@ -17,7 +17,8 @@
             background-color: burlywood;
             width: 90%;
             margin: auto;
-
+            padding-left: 10px;
+            padding-top: 10px;
         }
 
         input {
@@ -25,6 +26,7 @@
             background-color: #f2f2f2;
             border: hidden;
             height: 20px;
+            margin-bottom: 10px;
         }
 
         h1 {
@@ -38,17 +40,12 @@
             width: 80px;
             height: 25px;
             border: hidden;
+            border-radius: 5px;
+            margin-bottom: 10px;
         }
 
         label {
-            padding-top: 20px;
-        }
-
-        ul,
-        li {
-            list-style: none;
-            padding: 10px;
-            width: 100%;
+            margin-top: 0 10px;
         }
     </style>
 </head>
@@ -59,27 +56,15 @@
         <form action="">
             <h1>Đăng ký tài khoản</h1>
             <div>
-                <ul>
-                    <li>
-                        <label for="name">Họ và tên:</label><br>
-                        <input type="text" name="name"><br>
-                    </li>
-                    <li>
-                        <label for="email">Email:</label><br>
-                        <input type="text" name="email"><br>
-                    </li>
-                    <li>
-                        <label for="password">Mật khẩu:</label><br>
-                        <input type="password" name="password"><br>
-                    </li>
-                    <li>
-                        <label for="repassword">Xác nhận mật khẩu:</label><br>
-                        <input type="password" name="repassword"><br>
-                    </li>
-                    <li>
-                        <button>Đăng ký</button>
-                    </li>
-                </ul>
+                <label for="name">Họ và tên:</label><br>
+                <input type="text" name="name"><br>
+                <label for="email">Email:</label><br>
+                <input type="text" name="email"><br>
+                <label for="password">Mật khẩu:</label><br>
+                <input type="password" name="password"><br>
+                <label for="repassword">Xác nhận mật khẩu:</label><br>
+                <input type="password" name="repassword"><br>
+                <button>Đăng ký</button>
             </div>
         </form>
     </section>
