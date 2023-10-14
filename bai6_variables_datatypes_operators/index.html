@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JS basic</h1>
+    <!-- 
+        I.Các cách nhúng JS vào trang web : 
+        - C1: Viết JS trong cặp thẻ Script
+        - C2: Viết JS trực tiếp vào thẻ tag.
+        - C3: Tạo file .js rồi viết code trong đó.
+        II. Biến, cách khai báo biến
+        Biến là gì?
+        + dùng để gán giá trị
+        Có bao nhiêu từ khóa khai báo biến?
+        + 3 cách khai báo biến: 
+        1. var
+        + có thể gán lại giá trị, khai báo lại. 
+        + phạm vi hoạt động funtion
+        + có hoisting
+        hoisting?
+        là việc khai báo biến được đưa lên đầu
+        2. let
+        + có thể gán lại giá trị, nhưng không khai báo lại được
+        + phạm vi hoạt động blook-scope
+        + có hoisting (nhưng không truy cập được)
+        3. const
+        + thường để khai báo hằng số
+        + không thể gán lại giá trị, không thể khai báo lại. khi khai báo phải gán 1 giá trị
+        + phạm vi giống let
+        + có hoisting(nhưng không truy cập được)
+        Quy tắc đặt tên biến
+        + không đặt bắt đầu bở số, các kí tự(trừ $,_) tránh đặt tên bởi các từ khóa đặc biệt trong JS.
+        +đặt theo quy tắt camel-case (chữ cái đầu viết thường, các từ đầu sau viết hoa)
+        +Js có phân biệt chữ hoa và thường
+
+        III. Các kiểu dữ liệu trong JS
+        1.primirive type: kiểu dữ liệu đơn giản hay nguyên thủy
+        + string:       kiểu chữ
+        + number:       kiểu số
+        + undifined:    không xác định
+        + null:         không có giá trị(rỗng)
+        + NaN:          not a number(không phải số)
+        + Boolean:      kiểu đúng sai
+        (Symbol, bigInt)
+        2.reference type: kiểu dữ liệu phức tạp hay tham trị
+        + Array, function, object
+
+        3. kiểm tra kiểu dữ liệu (typeof)
+        kiểm tra kiểu dữ liệu của NaN dùng: 
+        Number.isNaN() - true là NaN
+                       - flase không phải NaN
+        IV. Các hàm có sẵn trong js
+        1. console.log(): giúp hiển thị kết quả để test xem các bước xử lý đúng chưa
+        2. alert(): hiển thị hộp thông báo bên ngaoif trình duyệt.
+        3. confirm(): hiển thị xác nhận đồng ý hay không.
+        4. prompt(): hiển thị ô nhập dữ liệu
+        DOM
+        5. document.write(): hiển thị lên trình duyệt
+
+        V toán tử operators
+        1. số học (+,-,*,/,**,%)
+        %: chia lấy dư
+        **: mũ
+        2. so sánh
+        ==,===,>,<,>=,<=,!=,!===
+        3. gán =
+        4. logic
+        &&,||
+        ||: sẽ lấy truthy đầu tiên nếu không có thì mặc định lấy cuối cùng.
+        &&: lấy false đầu tiên không có mặc định lấy thàng cuối cùng.
+
+        +truthy:không phải falsy
+        +falsy: 0,null,undefined,NaN,false,"",''
+        5. tăng giảm
+        ++;
+        a++; hậu tố (giá trị tăng sau)
+        ++a; tiền tố (giá trị tăng trước)
+        6.nullish nếu là null||undefined thì lấy thằng bên cạnh
+        ??
+        7.toán tử 3 ngôi ?:
+     -->
+
+     <!-- <button onclick="alert('Xin chào')">Click</button> -->
+     <script>
+        document.write("JS basic");
+        let value=prompt("mời bạn nhập tuổi");
+        console.log(value);
+        // var fullName="Nguyễn Minh Hùng";
+        // console.log(fullName);
+        // var fullName="Nguyễn Ngọc Anh";
+        // fullName="NGuyễn Ngọc Anh";
+        // console.log(fullName);
+
+        // let fullName="Nguyễn Minh Hùng";
+        //  fullName="NGuyễn Ngọc Anh"
+        //  console.log(fullName);
+
+        //  const pi=3.14;
+        //  console.log(pi);
+
+        // if(true){
+        //     var a=7;
+        // }
+        // console.log(a);
+        // console.log(a);
+        // var a=6
+
+
+        
+     </script>
+     <!-- <script src="./index.js"></script> -->
+</body>
+</html>

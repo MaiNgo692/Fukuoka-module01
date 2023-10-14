@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// Bài 3.1 viết chương trình tính chu vi và diện tích hình chữ nhật
+        let _width = +prompt("Hãy nhập chiều rộng hình chữ nhật:");
+        let _hight = +prompt("Hãy nhập chiều dài hình chữ nhật:");
+        document.write('<pre>');
+        document.writeln("Chu vi hình chữ nhật có chiều rộng: " + _width + "m, chiều dài: " + _hight + "m là:" + (_width+_hight)*2+ "m");
+        document.writeln("Diện tích hình chữ nhật có chiều rộng: " + _width + "m, chiều dài: " + _hight + "m là:" + (_width*_hight) + "m^2");
+    
+// Bài 3.2 viết chương trình tính chu vi và diện tích hình tròn
+        let _radius = +prompt("Hãy nhập bán kính hình tròn:");
+        const pi = 3.14;
+        document.writeln("Chu vi hình tròn có bán kính: " + _radius + "m là:" + _radius*pi*2 + "m");
+        document.writeln("Diện tích hình tròn có bán kính: " + _radius + "m là:" + pi*_radius*_radius + "m^2");
+    </script>
+</body>
+</html>
