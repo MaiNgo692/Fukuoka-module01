@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính BMI</title>
+</head>
+<body>
+    <script>
+        do{
+            var wight = +prompt('Nhập vào cân nặng của bạn(kg):');
+            console.log(wight ==0);
+        }while(isNaN(wight) || wight ==0);
+
+        do{
+            var hight = +prompt('Nhập vào chiều cao của bạn(m):');
+        }
+        while (isNaN(hight) || hight ==0);
+        
+        var bmi = wight/(hight*hight);
+        console.log(bmi);
+        if (bmi<18.5){
+            alert('Phân loại: Cân nặng thấp(gầy)');
+        }else if(bmi < 24.9){
+            alert('Phân loại: Bình thường');
+        }else if(bmi >= 25){
+            alert('Phân loại: Thừa cân');
+            if(bmi< 29.9){
+                alert('Tiền béo phì');
+            }else if(bmi < 34.9){
+                alert('Béo phì cấp độ I');
+            }else if(bmi<39.9){
+                alert('Béo phì cấp độ II');
+            }else
+                alert('Béo phì cấp độ III');
+        }
+    </script>
+</body>
+</html>

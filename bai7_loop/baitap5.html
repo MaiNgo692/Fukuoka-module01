@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Tìm chẵn lẻ bằng swich case</title>
+</head>
+<body>
+    <script>
+        let number = +prompt('Hãy nhập vào 1 số để kiểm tra:')
+        switch (number%2) {
+            case 0:
+                alert('Số nhập vào là sỗ chẵn!');
+                break;
+            case 1:
+                alert('Số nhập vào là số lẻ');
+                break;
+            default:
+                alert('Hãy nhập vào số nguyên!');
+                break;
+        }
+    </script>
+</body>
+</html>

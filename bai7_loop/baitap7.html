@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhập số nguyên</title>
+</head>
+<body>
+    <script>
+        let number = +prompt('Hãy nhập vào 1 số để kiểm tra x:')
+        if(Number.isInteger(parseFloat(number))){
+            if(number == 0){
+                alert('x có giá trị là 0')
+            }else if(number<0){
+                alert('x là số nguyên âm')
+            }else{
+                alert('x là số nguyên dương')
+            }
+        }else{
+            alert('Hãy nhập vào là số nguyên!');
+        }
+    </script>
+</body>
+</html>

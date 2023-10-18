@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check ngày trong tháng</title>
+</head>
+<body>
+    <script>
+        do{
+            var month = +prompt('Nhập tháng cần check ngày:')
+        }while(isNaN(month)|| month<1 || month>12);
+        switch (month) {
+            case 2:
+                alert(`Số ngày trong tháng ${month} là 28 hoặc 29 ngày`);
+                break;
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                alert(`Số ngày trong tháng ${month} là 31 ngày`);
+                break;
+            default:
+                alert(`Số ngày trong tháng ${month} là 30 ngày`);
+                break;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhập tuổi</title>
+</head>
+<body>
+    <script>
+        let age = +prompt('Hãy nhập số tuổi của bạn:');
+        console.log(typeof(age));
+        console.log(age);
+        if(Number.isInteger(parseFloat(age))){
+            if(age>=0&& age<=120){
+                if(age>=18){
+                    alert('Bạn trên 18 tuổi!');
+                }else{
+                    alert('Bạn dưới 18 tuổi!')
+                }
+            }else{
+                alert('Hãy nhập trong khoảng tuổi từ 0 đến 120!')
+            }
+        }else{
+            alert('Hãy nhập vào là số!');
+        }
+    </script>
+</body>
+</html>

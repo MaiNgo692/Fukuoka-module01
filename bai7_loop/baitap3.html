@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhập giờ 2</title>
+</head>
+<body>
+    <script>
+        let time = +prompt('Hãy nhập số giờ:');
+        console.log(typeof(time));
+        console.log(time);
+        if(Number.isInteger(parseFloat(time))){
+            if(time>=0&& time<=24){
+                if(time<10){
+                    alert('Good morning');
+                }else if(time<20){
+                    alert('Good day');
+                } else{
+                    alert('Good evening')
+                }
+            }else{
+                alert('Hãy nhập trong khoảng giờ từ 0 đến 24!')
+            }
+        }else{
+            alert('Hãy nhập vào là số!');
+        }
+    </script>
+</body>
+</html>

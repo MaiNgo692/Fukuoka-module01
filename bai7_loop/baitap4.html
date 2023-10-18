@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm chẵn lẻ bằng if</title>
+</head>
+<body>
+    <script>
+        let number = +prompt('Hãy nhập vào 1 số để kiểm tra:')
+        if(Number.isInteger(parseFloat(number))){
+            if(number%2 == 0){
+                alert('Số nhập vào là số chẵn')
+            }else{
+                alert('Số nhập vào là số lẻ')
+            }
+        }else{
+            alert('Hãy nhập vào là số nguyên!');
+        }
+    </script>
+</body>
+</html>

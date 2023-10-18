@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính điểm</title>
+</head>
+
+<body>
+    <script>
+        do {
+            var maths = +prompt('Nhập điểm môn toán:');
+        } while (isNaN(maths) || maths <= 0 || maths >= 10);
+        do {
+            var physics = +prompt('Nhập điểm môn lý:');
+        } while (isNaN(physics) || physics <= 0 || physics >= 10);
+        do {
+            var chemistry = +prompt('Nhập điểm môn hóa:');
+        } while (isNaN(chemistry) || chemistry <= 0 || chemistry >= 10);
+        do {
+            var literary = +prompt('Nhập điểm môn văn:');
+        } while (isNaN(literary) || literary <= 0 || literary >= 10);
+        do {
+            var historys = +prompt('Nhập điểm môn sử:');
+            console.log(historys);
+        } while (isNaN(historys) || historys <= 0 || historys >= 10);
+        do {
+            var geography = +prompt('Nhập điểm môn địa:');
+        } while (isNaN(geography) || geography <= 0 || geography >= 10);
+        
+        var averageOfSubject = (maths+physics+chemistry+literary+historys+geography)/6;
+        console.log(averageOfSubject);
+        if(averageOfSubject<5){
+            alert('Xếp loại YẾU');
+        }else if(averageOfSubject<=6.4){
+            alert('Xếp loại TRUNG BÌNH')
+        }else if(averageOfSubject<=7.9){
+            alert('Xếp loại KHÁ')
+        }else{
+            alert('Xếp loại GIỎI')
+        }
+    </script>
+</body>
+
+</html>
