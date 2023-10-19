@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đảo chuỗi</title>
+</head>
+<body>
+    <script>
+        var inStringToRever = prompt('Hãy nhập vào một chuỗi:');
+        let stringLenght = inStringToRever.length;
+        var stringToRever ="";
+        for(let i =0 ; i< stringLenght; i ++){
+            stringToRever += inStringToRever.charAt(stringLenght - 1-i);
+        }
+        document.write(`Chuỗi nhập vào ${inStringToRever} bị đảo ngược thành ${stringToRever}`);
+    </script>
+</body>
+</html>

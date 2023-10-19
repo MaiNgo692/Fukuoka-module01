@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra số hoàn hảo</title>
+</head>
+
+<body>
+    <script>
+        var checkNumber = prompt('Hãy nhập số để check:');
+        var sum = 0;
+        if (!isNaN(checkNumber) && checkNumber != 0) {
+            for (let i = 1; i < checkNumber; i++) {
+                if(checkNumber%i ==0){
+                    sum += i;
+                }
+            }
+            if(checkNumber == sum){
+                alert(`Số ${checkNumber} là số hoàn hảo!`);
+            }else{
+                alert(`Số ${checkNumber} không phải là số hoàn hảo!`)
+            }
+        } else {
+            alert('Hãy nhập số khác không!')
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

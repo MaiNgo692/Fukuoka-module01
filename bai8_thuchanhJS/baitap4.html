@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In 15 số Fibonaci</title>
+</head>
+<body>
+    <script>
+        document.write('<pre>');
+        document.writeln('15 số đầu teein của dãy Fibonaci:');
+        for(let i=1,nunber1=0,number2=1, fibonaci=1; i<=15; i++){
+            document.write(`${fibonaci} `);
+            fibonaci=nunber1+number2;
+            nunber1=number2;
+            number2=fibonaci;
+        }
+    </script>
+</body>
+</html>

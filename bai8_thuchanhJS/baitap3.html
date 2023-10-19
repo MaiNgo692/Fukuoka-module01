@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In dẫy số nguyên liên tiếp</title>
+</head>
+<body>
+    <script>
+        var printNumber = +prompt('Hãy nhập một số nguyên dương:');
+        console.log(printNumber);
+        console.log(!isNaN(printNumber));
+        console.log(printNumber > 0);
+       
+        if(!isNaN(printNumber) &&  printNumber > 0){
+            document.write('<pre>');
+            for( let i = 1 ; i< printNumber; i++){
+                for(let j = 0 ; j< printNumber; j++){
+                    document.write(i+j);
+                } 
+                document.writeln();    
+            }     
+        }else{
+            alert('Bạn đã nhập không phải số nguyên dương');
+        }
+    </script>
+</body>
+</html>
