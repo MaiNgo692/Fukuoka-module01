@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+          // --------------------------------------------------------------------------------
+        //Bài 3: Cho 1 một mảng  let  numbers=[1,5,8,7,9,6,5,41,2,6,55,4,8];
+        // Tìm số lớn nhất trong mảng
+
+        let arrayNumber=[1,5,8,7,9,6,5,41,2,6,55,4,8];
+        var max=arrayNumber[0];
+        arrayNumber.forEach(element => {
+            if (element>max){
+                max = element;
+            }
+        });
+        console.log(`Số lớn nhất trong mảng là ${max}`);
+        
+    </script>
+</body>
+</html>

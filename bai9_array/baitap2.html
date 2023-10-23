@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // --------------------------------------------------------------------------------
+        // Bài 2: Viết một chương trình nhận một số nhập vào và chèn dấu (-) giữa 2 số chẵn.
+        // Ví dụ nếu bạn nhập vào 245468 thì kết quả của chương trình sẽ là 2-454-6-8.
+
+        let input= prompt("Nhập vào chuỗi số:");
+        let array=input.split("");
+        console.log(array);
+        for (let index = 1; index < array.length; index++) {
+            if(array[index]%2==0 & array[index-1]%2==0){
+                array.splice(index,0,"-");
+            }    
+        }
+        console.log(array);
+    </script>
+</body>
+</html>

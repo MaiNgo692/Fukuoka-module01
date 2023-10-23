@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // --------------------------------------------------------------------------------
+        // Bài 4: Viết một chương trình nhập vào một chuỗi và chuyển các ký tự chữ thường trong chuỗi vừa nhập sang thành dạng chữ hoa.
+        // Các kí tự hoa chuyển thành chữ thường.
+        // Ví dụ: nếu bạn nhập vào chuỗi 'Keep Calm And Code On' kết quả của chương trình là 'kEEP cALM aND cODE oN'.
+        let inputString=prompt("Nhập vào một chuỗi:");
+        var arrayString=inputString.split("");
+        var char = '';
+        for (let index = 0; index < arrayString.length; index++) {
+            char = arrayString[index];
+            console.log(char);
+            if(!isNaN(char*1)){
+                //Không làm gì nếu kí tự là số
+            }else{
+                if(char ==char.toLocaleUpperCase()){
+                    arrayString[index] = char.toLocaleLowerCase();
+                }
+                if(char ==char.toLocaleLowerCase()){
+                    arrayString[index] = char.toLocaleUpperCase();
+                }
+            }
+            
+        }
+        console.log(arrayString.join(""));
+        
+    </script>
+</body>
+</html>
