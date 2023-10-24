@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập Function</title>
+    <link rel="stylesheet" href="./baitap.css">
+</head>
+<body>
+    <div id="bai-1">
+        <h1>Bài 1: Tìm số bé nhất</h1>
+        <ul>
+            <li>Cho người dùng nhập vào 3 số</li>
+            <li>Viết hàm kiểm tra để tìm ra số bé nhất và in ra số đó</li>
+        </ul>
+        <button onclick ="findMinNumber()">Thực thi</button>
+        <p id="result-1"></p>
+    </div>
+    <div id="bai-2">
+        <h1>Bài 2: Kiểm tra số nguyên tố</h1>
+        <ul>
+            <li>Cho người dùng nhập vào 1 số</li>
+            <li>Kiểm tra số đó có phải là số nguyên tố hay không</li>
+            <li class="demo-result"><i>(số nguyên tố là số nguyên dương chỉ có 2 ước là 1 và chính nó)</i></li>
+        </ul>
+        <button onclick ="checkPrimeNumber()">Thực thi</button>
+        <p id="result-2"></p>
+    </div>
+    <div id="bai-3">
+        <h1>Bài 3: Tính giai thừa</h1>
+        <ul>
+            <li>Cho người dùng nhập vào 1 số</li>
+            <li>Tính giai thừa của số đó</li>
+        </ul>
+        <button onclick ="factorial()">Thực thi</button>
+        <p id="result-3"></p>
+    </div>
+    <div id="bai-4">
+        <h1>Bài 4: Tìm cặp số trong mảng</h1>
+        <ul>
+            <li>Cho mảng [1,2,3,4,5,6,7,8,9,10]</li>
+            <li>Tìm tất cả các cặp số có tổng bằng 10</li>
+        </ul>
+        <button onclick ="findPairNumSum10()">Thực thi</button>
+        <p id="result-4"></p>
+    </div>
+    <div id="bai-5">
+        <h1>Bài 5: Kiểm tra tần suất xuất hiện mỗi kí tự</h1>
+        <ul>
+            <li>Cho người dùng nhập vào 1 chuỗi kí tự.</li>
+            <li>Tìm tần xuất xuât hiện của mỗi kí tự và in ra.</li>
+            <li>Input: 'Hello World'</li>
+            <li>Output:
+                <ul >
+                    <li class="demo-result">Ký tự h xuất hiện 1 lần</li>
+                    <li class="demo-result">Ký tự e xuất hiện 1 lần</li>
+                    <li class="demo-result">Ký tự l xuất hiện 3 lần</li>
+                    <li class="demo-result">Ký tự o xuất hiện 2 lần</li>
+                    <li class="demo-result">Ký tự &nbsp xuất hiện 1 lần</li>
+                    <li class="demo-result">Ký tự w xuất hiện 1 lần</li>
+                    <li class="demo-result">Ký tự r xuất hiện 1 lần</li>
+                    <li class="demo-result">Ký tự d xuất hiện 1 lần</li>
+                </ul>
+            </li>
+        </ul>
+        <button onclick ="frequencyOfChar()">Thực thi</button>
+        <p id="result-5"></p>
+    </div>
+    <script src="./baitap.js"></script>
+</body>
+</html>
