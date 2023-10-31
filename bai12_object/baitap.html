@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let stores = [{ id: 1, name: "Milk", count: 100 },
+        { id: 2, name: "Yakult", count: 100 },
+        { id: 3, name: "Butter", count: 100 }];
+        let carts = [];
+        let input = "";
+        do {
+            input = prompt("Hãy nhập vào 1 trong 5 chữ cái C/R/U/D");
+            switch (input) {
+                case "C":
+                    create();
+                    break;
+                case "R":
+                    readData();
+                    break;
+                case "U":
+                    updateCart();
+                    readData();
+                    break;
+                case "D":
+                    deleteData();
+                    readData();
+                    break;
+                default:
+                    if (input != "E") {
+                        console.log("Hãy nhập lại 1 trong 5 chữ cái C/R/U/D");
+                    }
+                    break;
+            }
+        } while (input != "E");
+        console.log("Cảm ơn bạn đã đến với Rikkei Stores");
+                 
+        function create() {
+            let productName = prompt("Hãy nhập tên sản phẩm muốn mua!");
+            let produtId;
+            let check = false;
+            const indexStore = stores.findIndex(x => x.name == productName);
+            if(indexStore>=0){
+                const indexCarts = carts.findIndex(x => x.id == idProduct);
+                if(indexCarts>=0){
+                    carts[indexCarts].count++;
+                }else{
+                    carts.push({id: stores[indexStore].id,name: productName,count: 1});
+                }
+            } else {
+                alert("Không có sản phẩm bạn muốn mua!");
+            }
+
+        }
+
+        function readData() {
+            console.log("Cart: ");
+            carts.forEach(element => {
+                console.log(element.id, element.name, element.count);
+            });
+            console.log("Stores: ");
+            stores.forEach(element => {
+                console.log(element.id, element.name, element.count);
+            });
+        }
+
+        function updateCart() {
+            let idProduct = prompt("Hãy nhập vị trí update trong Cart");
+            let productQuantity;
+            const indexCarts = carts.findIndex(x => x.id == idProduct);
+            if (indexCarts >= 0) {
+                const indexStore = stores.findIndex(x => x.id == idProduct);
+                productQuantity = + prompt("Hãy nhập số lượng muốn thay đổi:")
+                    if (stores[indexStore].count - productQuantity < 0) {
+                        alert("Số lượng không đủ!");
+                    } else {
+                        stores[indexStore].count = stores[indexStore].count - productQuantity;
+                        carts[indexCarts].count = carts[indexCarts].count + productQuantity;
+                    }
+            }else{
+                alert("Không có sản phẩm trong giỏ!");
+            }
+        }
+
+        function deleteData() {
+            let idProduct = prompt("Hãy nhập vị trí xóa trong Cart");
+            carts = carts.filter(function (el) { return el.id != idProduct; });
+        }
+    </script>
+</body>
+
+</html>
