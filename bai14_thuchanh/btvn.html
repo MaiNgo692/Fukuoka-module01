@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+       .container{
+        background-color: black;
+        width: 50%;
+        text-align: center;
+        height: 80vh;
+       }
+       h2{
+        color: #e84f6d;
+        padding: 20px;
+       }
+       .content{
+        background-color: white;
+        width: 95%;
+        margin:10px auto;
+        height: 60vh;
+       }
+        .point{
+            background-color: gray;
+            border-radius: 50%;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            margin: 2px;
+            line-height: 50px;
+        }
+        .input_review{
+            height: 30px;
+            border: 1px solid black;
+            width: 90%;
+            margin:10px auto;
+            padding: 5px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .input_review input{
+            border: none;
+            width: 60%;
+            height: 20px;
+        }
+        .input_review button{
+            width: 10%;
+            padding: 5px 10px;
+           background-color: #c4c2c5;
+           border: none;
+           border-radius: 5px;
+        }
+        .red{
+            background-color: red;
+            color: black;
+        }
+        .show{
+            width: 95%;
+            margin: 50px 10px 50px;
+        }
+        .show button{
+            border: none;
+            background-color: white;
+        }
+        .show_point{
+            display: flex;
+            justify-content: space-between;
+        }
+        .redIcon{
+            color: red;
+        }
+        .show_review{
+            text-align: left;
+            padding: 10px 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Feedback Coach</h2>
+        <div class="content">
+            <h3>Thầy dạy anh em có hay không</h3>
+            <div class="points">
+                <button id="1" onclick="clickPoint(1)" class="point">1</button>
+                <button id="2" onclick="clickPoint(2)" class="point">2</button>
+                <button id="3" onclick="clickPoint(3)" class="point">3</button>
+                <button id="4" onclick="clickPoint(4)" class="point">4</button>
+                <button id="5" onclick="clickPoint(5)" class="point">5</button>
+                <button id="6" onclick="clickPoint(6)" class="point">6</button>
+                <button id="7" onclick="clickPoint(7)" class="point">7</button>
+                <button id="8" onclick="clickPoint(8)" class="point">8</button>
+                <button id="9" onclick="clickPoint(9)" class="point">8</button>
+                <button id="10" onclick="clickPoint(10)" class="point">10</button>
+            </div>
+            <div class="input_review">
+                <input type="text" placeholder="Write a review" id="review">
+                <button onclick="addPoint()" id="send">Send</button>
+            </div>
+            <div class="show">
+                <div class="show_point" id="show_point"></div>
+                <p class="show_review" id="show_review"></p>
+            </div>
+            
+        </div>
+    </div>
+    <script>
+        let points = document.querySelectorAll(".point");
+        let indexPoints;
+        let checkClick = false;
+        function checkPointRed() {
+            for (let i = 0; i < points.length; i++) {
+                if(points[i].classList.contains('red')){
+                    indexPoints = i;
+                    return true;
+                }
+            }
+            return false;
+        }
+        function clickPoint(id) {
+            for (let i = 0; i < points.length; i++) {
+              if(i+1 == id){
+                points[i].classList.add("red");
+              }else{
+                points[i].classList.remove("red");
+              }
+            }
+        }
+        function addPoint() {
+            let text = "";
+            let review = document.getElementById("review").value;
+            if (review == "") {
+                alert("Hãy nhập review của bạn!");
+            } else if (checkPointRed()) {
+                text += ` <span class="point red">${points[indexPoints].id}</span>
+                <div>
+                    <button onclick="editReview(${points[indexPoints].id})"><span class="material-symbols-outlined redIcon">edit_square</span></button>
+                    <button onclick="closeReview()"><span class="material-symbols-outlined redIcon">close</span></button>
+                </div>
+                `;
+                points[indexPoints].classList.remove("red");
+                document.getElementById("send").innerText = "Send";
+            } else {
+                alert("Hãy chọn điểm đánh giá!");
+            }
+            checkClick =false;
+            document.getElementById("show_point").innerHTML= text;
+            document.getElementById("show_review").innerHTML= review;
+            document.getElementById("review").value = "";
+        }
+
+        function editReview(id) {
+            console.log(document.getElementById("show_review"));
+            let review = document.getElementById("show_review").innerHTML;
+            document.getElementById("review").value= review;
+            document.getElementById("send").innerText = "Edit";
+            points[id-1].classList.add("red");
+        }
+        function closeReview() {
+            document.getElementById("show_point").innerHTML="";
+            document.getElementById("show_review").innerHTML= "";
+        }
+    </script>
+    
+</body>
+
+</html>
