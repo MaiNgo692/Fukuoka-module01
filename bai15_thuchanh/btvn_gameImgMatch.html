@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImageMatch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .imgs {
+            border: 1px solid black;
+            width: 40%;
+            margin: 10px auto;
+            background-color: aqua;
+        }
+
+        .imgs__Item {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            list-style: none;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="imgs">
+        <ul class="imgs__Item">
+
+        </ul>
+    </div>
+
+    <script>
+        let imgs = [{
+            img: "./animalImg/feat-iStock-1333294167-1200x1200.jpg",
+            bgImg: "./animalImg/image_hinh-anh-dau-cham-hoi-trong-powerpoint-5.jpg",
+        }, {
+            img: "./animalImg/hero_zebra_animals.jpg",
+            bgImg: "./animalImg/image_hinh-anh-dau-cham-hoi-trong-powerpoint-5.jpg",
+        }, {
+            img: "./animalImg/pexels-photo.jpg",
+            bgImg: "./animalImg/image_hinh-anh-dau-cham-hoi-trong-powerpoint-5.jpg",
+        }, {
+            img: "./animalImg/Raccoon_in_Central_Park_(35264).jpg",
+            bgImg: "./animalImg/image_hinh-anh-dau-cham-hoi-trong-powerpoint-5.jpg",
+        }, {
+            img: "./animalImg/rexfeatures_748923a.jpg",
+            bgImg: "./animalImg/image_hinh-anh-dau-cham-hoi-trong-powerpoint-5.jpg",
+        }, {
+            img: "./animalImg/tiger_laying_hero_background.jpg",
+            bgImg: "./animalImg/image_hinh-anh-dau-cham-hoi-trong-powerpoint-5.jpg",
+        }, {
+            img: "./animalImg/feat-iStock-1333294167-1200x1200.jpg",
+            bgImg: "./animalImg/image_hinh-anh-dau-cham-hoi-trong-powerpoint-5.jpg",
+        }, {
+            img: "./animalImg/hero_zebra_animals.jpg",
+            bgImg: "./animalImg/image_hinh-anh-dau-cham-hoi-trong-powerpoint-5.jpg",
+        }, {
+            img: "./animalImg/pexels-photo.jpg",
+            bgImg: "./animalImg/image_hinh-anh-dau-cham-hoi-trong-powerpoint-5.jpg",
+        }, {
+            img: "./animalImg/Raccoon_in_Central_Park_(35264).jpg",
+            bgImg: "./animalImg/image_hinh-anh-dau-cham-hoi-trong-powerpoint-5.jpg",
+        }, {
+            img: "./animalImg/rexfeatures_748923a.jpg",
+            bgImg: "./animalImg/image_hinh-anh-dau-cham-hoi-trong-powerpoint-5.jpg",
+        }, {
+            img: "./animalImg/tiger_laying_hero_background.jpg",
+            bgImg: "./animalImg/image_hinh-anh-dau-cham-hoi-trong-powerpoint-5.jpg",
+        }
+        ]
+        function shuffle(arra1) {
+            var ctr = arra1.length, temp, index;
+            while (ctr > 0) {
+                index = Math.floor(Math.random() * ctr);
+                ctr--;
+                temp = arra1[ctr];
+                arra1[ctr] = arra1[index];
+                arra1[index] = temp;
+            }
+            return arra1;
+        }
+        let indextAr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+        let imgsIndext = shuffle(indextAr);
+        function showImgs() {
+            let text = "";
+            // console.log(imgsIndext);
+            // console.log(imgs[imgsIndext[1] - 1].bgImg);
+            // console.log(imgs[imgsIndext[1] - 1].img);
+            for (let i = 0; i < imgsIndext.length; i++) {
+                text +=
+                    `
+                <li onclick = clickImg(${i})  class ="item">
+                    <img src=${imgs[imgsIndext[i] - 1].bgImg} alt="" class = "bg-img" id ="bg-${i}">
+                    <img src=${imgs[imgsIndext[i] - 1].img} alt=""  hidden class ="img" id="${i}">
+                </li>
+                `
+            }
+            document.getElementsByClassName("imgs__Item")[0].innerHTML = text;
+        }
+        showImgs();
+        let clickIds = [];
+        let imgList = document.getElementsByClassName("img");
+        function clickImg(indext) {
+            // console.log(document.getElementById(`${indext}`));
+            if (document.getElementById(`${indext}`).hidden == true) {
+                document.getElementById(`${indext}`).hidden = false;
+                document.getElementById(`bg-${indext}`).hidden = true;
+            }
+            checkImg();
+        }
+        function checkImg() {
+            // console.log(imgList);
+            for (let i = 0; i < imgList.length; i++) {
+                if ((imgList[i].hidden == false) && (!clickIds.includes(i)&&(!imgList[i].classList.contains("selected")))) {
+                    clickIds.push(i);
+                }
+                if (clickIds.length == 2) {
+                    console.log(clickIds);
+                    if (document.getElementById(`${clickIds[0]}`).getAttribute("src") != document.getElementById(clickIds[1]).getAttribute("src")) {
+                        document.getElementById(clickIds[0]).hidden = true;
+                        document.getElementById(`bg-${clickIds[0]}`).hidden = false;
+                        document.getElementById(clickIds[1]).hidden = true;
+                        document.getElementById(`bg-${clickIds[1]}`).hidden = false;
+                    } else {
+                        document.getElementById(clickIds[0]).classList.add("selected");
+                        document.getElementById(clickIds[1]).classList.add("selected");
+                    }
+                    clickIds.length = 0;
+                }
+            }
+        }
+        function randomIndext() {
+            return rand = Math.floor(Math.random() * (12 - 1) + 1);
+        }
+    </script>
+</body>
+
+</html>
