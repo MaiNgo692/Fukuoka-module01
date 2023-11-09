@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .register{
+        background-color: #dbdbdb;
+        width: 400px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .register label{
+        display: inline-block;
+        min-width:  120px;
+    }
+    .register input{
+        outline: none;
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+        margin: 5px;
+    }
+    button{
+        margin: 0 auto;
+        padding: 5px;
+        width: 100px;
+        border: none;
+        border-radius: 5px;
+        background-color: tomato;
+    }
+</style>
+<body>
+    <div class="register">
+        <label for="">username</label>
+        <input type="text" id="userName"> <br>
+        <label for="">email</label>
+        <input type="text" id="email"> <br>
+        <label for="">password</label>
+        <input type="password" id="password"> <br>
+        <label for="">confrimPassword</label>
+        <input type="password" id="confirmPassword"> <br>
+        <button onclick="signUp()">SigUp</button>
+        <p>Bạn đã có tài khoản <a href="./login.html">SignIn</a></p>
+    </div>
+    <script>
+        /* 
+        Taoj mảng chứa danh sách 
+         */
+        function uuId() {
+            return Math.random()*11234455667;
+        }
+         function signUp() {
+            console.log("1111");
+            let users = JSON.parse(localStorage.getItem("users"))||[];
+            let userName= document.getElementById("userName").value;
+            let email= document.getElementById("email").value;
+            let password= document.getElementById("password").value;
+            let confirmPassword= document.getElementById("confirmPassword").value;
+            
+            let obj ={
+                name: userName,
+                email: email,
+                password: password,
+                id: uuId(),
+                cart:[],
+            }
+            let find = users.filter((item)=>{
+                return item.email == email;
+            });
+            if(find.length !=0){
+                alert("email đã được đăng ký");
+                return;
+            }
+            users.push(obj);
+            localStorage.setItem("users",JSON.stringify(users));
+            window.location.href="./login.html";
+
+         }
+    </script>
+</body>
+</html>

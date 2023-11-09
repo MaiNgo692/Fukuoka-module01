@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            background-color: yellow;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .container .product__item {
+            width: 25%;
+            background-color: rgb(194, 240, 194);
+            border-radius: 5px;
+        }
+        .container .product__item .product__item--img {
+            width: 100%;
+            height: 200px;
+        }
+        .container .product__item .product__item--img img {
+            width: 100%;
+            height: 90%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .pageList ul{
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .pageList ul li{
+            list-style: none;
+        }
+        .pageList li{
+            border: 1px solid black;
+            border-radius: 50%;
+            width: 20px;
+            text-align: center;
+        }
+        .select_page{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header__logo">
+            ảnh logo
+        </div>
+        <div class="header__navigation">
+            chứa các trang điều hướng
+        </div>
+        <div class="header__sign">
+            <button class="header__sign--sigIn">SignIn</button>
+            <button class="header__sign--sigUp">SignUp</button>
+        </div>
+    </div>
+    <div class="container">
+        <!-- <div class="product__item">
+            <div class="product__item--img">
+                <img src="./img/0236f8bae49141a3cf650ee3606549cc.jpg" alt="">
+            </div>
+            <p class="product__item--name">
+                name
+            </p>
+            <p class="product__item--price">
+                price
+            </p>
+            <p class="product__item--cart">
+                cart
+                <span class="material-symbols-outlined">
+                    shopping_cart
+                    </span>
+            </p>
+           
+        </div>
+        <div class="product__item">
+            <div class="product__item--img">
+                <img src="./img/0236f8bae49141a3cf650ee3606549cc.jpg" alt="">
+            </div>
+            <p class="product__item--name">
+                name
+            </p>
+            <p class="product__item--price">
+                price
+            </p>
+            <p class="product__item--cart">
+                cart
+            </p>
+        </div>
+        <div class="product__item">
+            <div class="product__item--img">
+                <img src="./img/0236f8bae49141a3cf650ee3606549cc.jpg" alt="">
+            </div>
+            <p class="product__item--name">
+                name
+            </p>
+            <p class="product__item--price">
+                price
+            </p>
+            <p class="product__item--cart">
+                cart
+            </p>
+        </div>
+        <div class="product__item">
+            <div class="product__item--img">
+                <img src="./img/0236f8bae49141a3cf650ee3606549cc.jpg" alt="">
+            </div>
+            <p class="product__item--name">
+                name
+            </p>
+            <p class="product__item--price">
+                price
+            </p>
+            <p class="product__item--cart">
+                cart
+            </p>
+        </div> -->
+    </div>
+    <div class="pageList">
+        <ul id="pages">
+            <!-- <span class="material-symbols-outlined">
+                arrow_back_ios
+                </span>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <span class="material-symbols-outlined">
+                arrow_forward_ios
+                </span> -->
+        </ul>
+
+    </div>
+    <script>
+        let products=[{   
+            img:"./img/0236f8bae49141a3cf650ee3606549cc.jpg",
+            name:"Sản phẩm 1",
+            price:5000, 
+            id: 1,     
+        },{
+            img:"./img/Banh-sinh-nhat-be-trai-co-gan-anh-tren-banh-768x576.jpg",
+            name:"Sản phẩm 2",
+            price:5000,
+            id: 2,
+        },{
+            img:"./img/Banh-sinh-nhat-kieu-hien-dai-gan-vuong-mien-va-anh-ban-gai-768x576.jpg",
+            name:"Sản phẩm 3",
+            price:5000,
+            id: 3
+        },
+        {   
+            img:"./img/c6373977847ad89d90f992023456ed29.jpg",
+            name:"Sản phẩm 4",
+            price:5000, 
+            id: 1,     
+        },{
+            img:"./img/download.jpg",
+            name:"Sản phẩm 5",
+            price:5000,
+            id: 2,
+        },{
+            img:"./img/foody-mobile-nguyet-linh-tiem-banh-ngot-bac-ninh.jpg",
+            name:"Sản phẩm 6",
+            price:5000,
+            id: 3
+        },
+        {   
+            img:"./img/hinh-anh-banh-donut.jpg",
+            name:"Sản phẩm 7",
+            price:5000, 
+            id: 1,     
+        },{
+            img:"./img/images (1).jpg",
+            name:"Sản phẩm 8",
+            price:5000,
+            id: 2,
+        },{
+            img:"./img/images.jpg",
+            name:"Sản phẩm 9",
+            price:5000,
+            id: 3
+        },
+        {
+            img:"./img/top-6-hinh-anh-banh-sinh-nhat-dep-va-nhieu-y-nghia-nhat-2018.jpg",
+            name:"Sản phẩm 10",
+            price:5000,
+            id: 3
+        }
+    ]
+        localStorage.setItem("products",JSON.stringify(products));
+        let totalItem= 3;
+        let totalPage = Math.ceil(products.length/totalItem);    
+        let start;
+        let end;
+        let curentPage =1;
+        function startEnd(curentPage) {
+            start = (curentPage -1)*totalItem;
+            end = curentPage*totalItem;
+        }
+        startEnd(1);
+        
+    function showProduct() {
+        let text="";
+            for (let i = 0; i < products.length; i++) {
+                if(i>=start && i< end){
+                    text+=
+                    `   <div class="product__item">
+                        <div class="product__item--img">
+                            <img src="${products[i].img}" alt="">
+                        </div>
+                        <p class="product__item--name">
+                            name : ${products[i].name}
+                        </p>
+                        <p class="product__item--price">
+                            price : ${products[i].price}
+                        </p>
+                        <p class="product__item--cart">
+                            cart
+                            <span class="material-symbols-outlined" onclick ="addToCart(${products[i].id})">
+                            shopping_cart
+                            </span>
+                        </p>
+                    </div>
+                    `;
+                }
+            }
+            document.getElementsByClassName("container")[0].innerHTML=text;
+        }
+        showProduct();
+        function pageListShow() {
+            let text="";
+            for (let i = 1; i <= totalPage; i++) {
+                text +=
+                `
+               <li onclick = showPage(${i}) class="page__item">${i}</li>
+                `
+            }
+            console.log(text);
+            document.getElementById("pages").innerHTML = 
+            `   <span class="material-symbols-outlined" onclick = prePage()>
+                arrow_back_ios
+                </span>
+              ${text}
+                <span class="material-symbols-outlined" onclick = nextPage()>
+                arrow_forward_ios
+                </span>
+            `;
+            document.getElementsByClassName("page__item")[0].classList.add("select_page");
+        }
+        pageListShow();
+        function prePage() {
+            curentPage--;
+            if(curentPage <=1){
+                curentPage =1;
+            }
+            showPage(curentPage);
+     
+        }
+        function nextPage() {
+            curentPage++;
+            if(curentPage >= totalPage){
+                curentPage = totalPage;
+            }
+            showPage(curentPage);
+        }
+        function showPage(curent) {
+            curentPage = curent;
+            let pageItem = document.getElementsByClassName("page__item");
+            for (let i = 0; i < pageItem.length; i++) {
+                if(i == curent -1){
+                    pageItem[i].classList.add("select_page");
+                }else{
+                    pageItem[i].classList.remove("select_page");
+                }
+                
+            }
+            startEnd(curent);
+            showProduct();
+        }
+        function addToCart(id) {
+
+            // Kieemr tra nguoi dung dddax ddawng nhaapj hay chuwa
+            let checkLogin = localStorage.getItem("idUser");
+            let users = JSON.parse(localStorage.getItem("users"));
+            let products = JSON.parse(localStorage.getItem("products"));
+            if(!checkLogin){
+                alert("Vui lòng đăng nhập để mua hàng!");
+            }
+            console.log("Mua hangf bt");
+            // di lay gio hang cua user
+
+            for (let i = 0; i < users.length; i++) {
+                if(users[i].id == checkLogin){
+                    // users[i].cart
+                    for (let j = 0; j < products.length; j++) {
+                        if(products[j].id == id){
+                            console.log(products[j].name);
+                            //truoc khi push vao cart thif can kiem tra da cos trong gio hay chua
+                            // neeus cos thif tang so luong
+                            //neu chu aco thi push vao bt
+                            let result = users[i].cart.findIndex(item=>{
+                                return item.id == products[j].id;
+                            })
+                            if (result!=-1) {
+                                users[i].cart[result].quanlity =++users[i].cart[result].quanlity;
+                                localStorage.setItem("users",JSON.stringify(users));
+                            }else{
+                                users[i].cart.push({...products[j],quanlity:1});
+                                localStorage.setItem("users",JSON.stringify(users));
+                            }
+                            break;
+                        }
+                        
+                    }
+                }
+                
+            }
+        }
+    </script>
+</body>
+</html>

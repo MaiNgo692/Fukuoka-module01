@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .login{
+        background-color: #dbdbdb;
+        width: 400px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .login label{
+        display: inline-block;
+        min-width:  120px;
+    }
+    .login input{
+        outline: none;
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+        margin: 5px;
+    }
+    button{
+        margin: 0 auto;
+        padding: 5px;
+        width: 100px;
+        border: none;
+        border-radius: 5px;
+        background-color: tomato;
+    }
+</style>
+<body>
+    <div class="login">
+        <label for="">email</label>
+        <input type="text" id="email"> <br>
+        <label for="">password</label>
+        <input type="password" id="password"> <br>
+        <button onclick="signIn()">SignIn</button>
+        <p>Bạn chưa có tài khoản <a href="./register.html">SignUp</a></p>
+    </div>
+    <script>
+        function signIn() {
+            let users = JSON.parse(localStorage.getItem("users"))||[];
+            let email= document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            for (let i = 0; i < users.length; i++) {
+                if(users[i].email == email && users[i].password==password){
+                    localStorage.setItem("idUser",users[i].id);
+                    window.location.href="./indext.html";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
