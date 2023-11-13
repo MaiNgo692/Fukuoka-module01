@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <style>
+        table,
+        tr,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        td img {
+            width: 200px;
+        }
+
+        td {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên</th>
+                <th>Ảnh</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Thành tiền</th>
+                <th>Xóa</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            <tr>
+                <td>1</td>
+                <td>Bánh ngọt</td>
+                <td><img src="" alt=""></td>
+                <td>30000</td>
+                <td><button>-</button>5 <button>+</button></td>
+                <td>150000</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="5">Tổng tiền thanh toán</th>
+                <th id="pay-total"></th>
+            </tr>
+        </tfoot>
+    </table>
+    <script>
+        let checkLogin = localStorage.getItem("idUser");
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+        let indextOfUser;
+        let cart = getCart();
+        // console.log(cart); 
+        const VND = new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+        });
+        function getCart() {
+            for (let i = 0; i < users.length; i++) {
+                if (users[i].id == checkLogin) {
+                    console.log(i);
+                    indextOfUser = i;
+                    return users[i].cart;
+                }
+            }
+            return [];
+        }
+        function showCart() {
+            let text = "";
+            let pay = 0;
+            for (let index = 0; index < cart.length; index++) {
+                pay +=  cart[index].quantity * cart[index].price;
+                text += `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td>${cart[index].name}</td>
+                        <td><img src="${cart[index].img}" alt=""></td>
+                        <td>${cart[index].price}</td>
+                        <td><button onclick = reduce(${cart[index].id})>-</button>${cart[index].quantity}<button onclick=increase(${cart[index].id})>+</button></td>
+                        <td>${ VND.format(cart[index].quantity * cart[index].price)}</td>
+                        <td><button onclick = deleteProduct(${cart[index].id})>X</button></td>
+                    </tr>                 
+                    `;
+            }
+            document.getElementById("tbody").innerHTML = text;
+            document.getElementById("pay-total").innerHTML = VND.format(pay);
+        }
+        showCart();
+
+        function increase(idProduct) {
+            for (let i = 0; i < cart.length; i++) {
+                if (cart[i].id == idProduct) {
+                    cart[i].quantity = ++cart[i].quantity;
+                    console.log(users[indextOfUser].cart);
+                    console.log(cart);
+                    localStorage.setItem("users",JSON.stringify(users));
+                    showCart();
+                    break;
+                }
+            }
+        }
+        function reduce(idProduct) {
+            for (let i = 0; i < cart.length; i++) {
+                if (cart[i].id == idProduct) {
+                    if (cart[i].quantity > 0) {
+                        cart[i].quantity = --cart[i].quantity;
+                        console.log(users[indextOfUser].cart);
+                        localStorage.setItem("users", JSON.stringify(users));
+                        showCart();
+                        break;
+                    }
+                }
+            }
+        }
+        function deleteProduct(idProduct) {
+            for (let i = 0; i < cart.length; i++) {
+                if (cart[i].id == idProduct) {
+                    confirm("Bạn có chắc chắn muốn xóa sản phẩm này không?");
+                    if (confirm) {
+                        cart.splice(i, 1);
+                        showCart();
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
