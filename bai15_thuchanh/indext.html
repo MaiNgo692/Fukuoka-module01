@@ -40,7 +40,10 @@
             gap: 20px;
             align-items: center;
         }
-
+        .header__sign {
+            display: flex;
+            gap: 10px;
+        }
         .header__sign .btn {
             border: none;
             border-radius: 5px;
@@ -48,6 +51,24 @@
             margin: 5px;
             padding: 5px 10px;
             background-color: aquamarine;
+        }
+
+        .header__sign .cart {
+
+            position: relative;
+        }
+
+        .header__sign .cart .cart-total {
+            border: 1px solid green;
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 15px;
+            position: absolute;
+            bottom: 20px;
+            color: red;
         }
 
         .container {
@@ -99,7 +120,20 @@
         }
 
         .cart {
-            background-color: red;
+            /* background-color: red; */
+        }
+
+        .search {
+            width: 600px;
+            /* background-color: aqua; */
+            margin: 0 auto;
+        }
+
+        .search input {
+            width: 100%;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid green;
         }
     </style>
 </head>
@@ -120,12 +154,16 @@
             <span id="hello">Hello</span>
             <button class="btn header__sign--sigIn"><a href="./login.html">SignIn</a></button>
             <button class="btn header__sign--sigUp"><a href="./register.html">SignUp</a></button>
-        </div>
-        <div class="cart">
-           
+            <div class="cart">
+
                 <a href="./cart.html"> <span class="material-symbols-outlined">
-                    shopping_cart</span></a> 
+                        shopping_cart</span></a>
+                <span class="cart-total">1</span>
+            </div>
         </div>
+    </div>
+    <div class="search">
+        <input type="text" placeholder="tìm theo tên bánh" oninput="search()" id="search">
     </div>
     <div class="container">
         <!-- <div class="product__item">
@@ -205,7 +243,8 @@
 
     </div>
     <script>
-        let isLogin = localStorage.getItem("idUser");
+        function showCart() {
+            let isLogin = localStorage.getItem("idUser");
         if (isLogin) {
             document.getElementsByClassName("header__sign--sigIn")[0].style.display = "none";
             document.getElementsByClassName("header__sign--sigUp")[0].style.display = "none";
@@ -215,66 +254,70 @@
             })
             document.getElementById("hello").innerHTML = `Hello ${userName.name}`;
             document.getElementsByClassName("cart")[0].style.display = "block";
+            document.getElementsByClassName("cart-total")[0].innerHTML = userName.cart.length;
         } else {
             document.getElementById("hello").style.display = "none";
         }
+        }
+        showCart();
         let products = [{
             img: "./img/0236f8bae49141a3cf650ee3606549cc.jpg",
-            name: "Sản phẩm 1",
+            name: "Bánh dẻo",
             price: 5000,
             id: 1,
         }, {
             img: "./img/Banh-sinh-nhat-be-trai-co-gan-anh-tren-banh-768x576.jpg",
-            name: "Sản phẩm 2",
+            name: "Bánh gai",
             price: 5000,
             id: 2,
         }, {
             img: "./img/Banh-sinh-nhat-kieu-hien-dai-gan-vuong-mien-va-anh-ban-gai-768x576.jpg",
-            name: "Sản phẩm 3",
+            name: "Bánh bột lọc",
             price: 5000,
             id: 3
         },
         {
             img: "./img/c6373977847ad89d90f992023456ed29.jpg",
-            name: "Sản phẩm 4",
+            name: "Bánh canh",
             price: 5000,
             id: 1,
         }, {
             img: "./img/download.jpg",
-            name: "Sản phẩm 5",
+            name: "Bánh chuối",
             price: 5000,
             id: 2,
         }, {
             img: "./img/foody-mobile-nguyet-linh-tiem-banh-ngot-bac-ninh.jpg",
-            name: "Sản phẩm 6",
+            name: "Bánh chưng",
             price: 5000,
             id: 3
         },
         {
             img: "./img/hinh-anh-banh-donut.jpg",
-            name: "Sản phẩm 7",
+            name: "Bánh táo ",
             price: 5000,
             id: 1,
         }, {
             img: "./img/images (1).jpg",
-            name: "Sản phẩm 8",
+            name: "bánh bò",
             price: 5000,
             id: 2,
         }, {
             img: "./img/images.jpg",
-            name: "Sản phẩm 9",
+            name: "Bánh bèo",
             price: 5000,
             id: 3
         },
         {
             img: "./img/top-6-hinh-anh-banh-sinh-nhat-dep-va-nhieu-y-nghia-nhat-2018.jpg",
-            name: "Sản phẩm 10",
+            name: "Bánh hỏi",
             price: 5000,
             id: 3
         }
         ]
         localStorage.setItem("products", JSON.stringify(products));
         let totalItem = 3;
+
         let totalPage = Math.ceil(products.length / totalItem);
         let start;
         let end;
@@ -284,8 +327,22 @@
             end = curentPage * totalItem;
         }
         startEnd(1);
-
-        function showProduct() {
+        function search() {
+            setTimeout(() => {
+                let searchInput = document.getElementById("search").value;
+                let result = products.filter((item) => {
+                    return item.name.indexOf(searchInput) != -1;
+                })
+                console.log("search", result);
+                getTotalPage(result);
+                showProduct(result);
+                pageListShow();
+            }, 3000);
+        }
+        function getTotalPage(params) {
+            totalPage = Math.ceil(params.length / totalItem);
+        }
+        function showProduct(products) {
             let text = "";
             for (let i = 0; i < products.length; i++) {
                 if (i >= start && i < end) {
@@ -312,7 +369,7 @@
             }
             document.getElementsByClassName("container")[0].innerHTML = text;
         }
-        showProduct();
+        showProduct(products);
         function pageListShow() {
             let text = "";
             for (let i = 1; i <= totalPage; i++) {
@@ -358,7 +415,6 @@
                 } else {
                     pageItem[i].classList.remove("select_page");
                 }
-
             }
             startEnd(curent);
             showProduct();

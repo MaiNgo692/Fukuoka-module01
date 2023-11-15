@@ -38,12 +38,12 @@
         </thead>
         <tbody id="tbody">
             <tr>
-                <td>1</td>
+                <!-- <td>1</td>
                 <td>Bánh ngọt</td>
                 <td><img src="" alt=""></td>
                 <td>30000</td>
                 <td><button>-</button>5 <button>+</button></td>
-                <td>150000</td>
+                <td>150000</td> -->
             </tr>
         </tbody>
         <tfoot>
@@ -126,6 +126,7 @@
                     confirm("Bạn có chắc chắn muốn xóa sản phẩm này không?");
                     if (confirm) {
                         cart.splice(i, 1);
+                        localStorage.setItem("users", JSON.stringify(users));
                         showCart();
                     }
                 }
